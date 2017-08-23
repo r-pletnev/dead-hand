@@ -1,9 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const app = express(); 
 
 const middlewares = require('./middlewares.js');
@@ -17,7 +15,6 @@ app.use(express.static('public'));
 
 app.use(session({secret: 'top-secret', saveUninitialized: false, maxAge: 30000, resave: true}));
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(cookieParser());
 app.use(middlewares.setupSession);
 app.use(middlewares.authorization((res) => {res.redirect('/login')}));
 app.use(middlewares.checkSettingsExist);
@@ -90,7 +87,15 @@ app.post('/settings', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render('login');
+    utils.getAttribute('password')
+        .then(result => {
+            if (result === ''){
+                req.session.user.is_admin = true;
+                return res.redirect('/settings');
+            } else {
+                res.render('login');
+            }
+        });
 });
 
 app.post('/login', (req, res) => {
@@ -120,9 +125,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-    res.session.destroy(err => {
-        throw err;
-    });
+    req.session.destroy();
     res.redirect('/login');
 });
 
