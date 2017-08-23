@@ -1,0 +1,26 @@
+{
+  "name": "dead-hand",
+  "version": "0.0.1",
+  "description": "Web-server for remove folders from server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/zeroed88/dead-hand.git"
+  },
+  "keywords": [
+    "remote",
+    "folder",
+    "deleting"
+  ],
+  "author": "Roman Pletnev",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.5",
+    "jade": "^1.11.0"
+  }
+}

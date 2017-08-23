@@ -1,0 +1,24 @@
+html
+    head
+        title Settings
+        link(href='css/main.css', rel='stylesheet')
+    body
+        include includes/head
+        .wrapper
+            form(action='/settings', method='post')
+                fieldset
+                    - if (errors)
+                        - if(errors.password)
+                            p(style='color: red;') #{errors.password}
+                            
+                    label(for='pass') Password:
+                    input(id='pass', type='password', name='password')
+                fieldset
+                    - if (errors)
+                        - if(errors.path)
+                            p(style='color: red;') #{errors.path}
+                            
+                    label(for='path') Folder path:
+                    input(id='path', type='text', name='path', value="#{path}")
+                input(type='submit')
+

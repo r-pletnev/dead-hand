@@ -1,0 +1,13 @@
+html
+    head
+        title Login
+        link(href='css/main.css', rel='stylesheet')
+    body
+        .wrapper
+            form(action='/login', method='post')
+                - if (error)
+                    p(style='color: red;') #{error.message}
+                    
+                label(for='pass') Password:
+                input(id='pass', type='password', name='password')
+                input(type='submit')

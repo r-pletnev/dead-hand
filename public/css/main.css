@@ -1,0 +1,56 @@
+
+.header .nav-wrapper {
+    display: flex;
+    height: 20%;
+}
+
+.logo a {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #123950;
+	font-size: 2em;
+}
+
+.menu {
+	display: flex;
+	margin-left: auto;
+	align-items: stretch;
+}
+
+.menu span,
+.menu a {
+	display: flex;
+	align-items: center;
+	padding: 0 1em;
+	color: #123950;
+	text-decoration: none;
+	font-size: 1.5em;
+}
+
+.menu a.active {
+	color: #00add2;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 200px;
+}
+
+.btn{
+     background-color: #e7e7e7; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.red {
+    color: white;
+    background-color: #f44336;
+}
