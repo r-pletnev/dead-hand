@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const rmdir = require('rimraf');
 
 const SETTINGS = path.join(__dirname + '/db/settings.json');
 const initialSettings = {password: '', path: ''};
@@ -58,7 +59,7 @@ function getAttribute(name){
 
 function removeDirectory(path){
     return new Promise((resolve, reject) => {
-        fs.rmdir(path, (err) => {
+        rmdir(path, (err) => {
             if(err) {
                 reject(err);
             }

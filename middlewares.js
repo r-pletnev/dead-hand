@@ -41,7 +41,7 @@ function setupSession(req, res, next){
         req.session.user.is_admin = false;
     }
     next();
-}
+};
 
 module.exports = {
     checkSettingsExist,

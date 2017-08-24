@@ -3,6 +3,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const app = express(); 
+const argv = require('minimist')(process.argv.slice(2));
+
+const PORT = argv.port ? argv.port : '3000';
 
 const middlewares = require('./middlewares.js');
 const utils = require('./utils.js');
@@ -129,6 +132,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/login');
 });
 
-app.listen(3000, () => {
-    console.log('App listening on port 3000');
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
 });
