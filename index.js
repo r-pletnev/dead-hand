@@ -10,7 +10,8 @@ const PORT = argv.port ? argv.port : '3000';
 const middlewares = require('./middlewares.js');
 const utils = require('./utils.js');
 
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, "views"));
 
 
 app.use(express.static('public'));
@@ -18,9 +19,9 @@ app.use(express.static('public'));
 
 app.use(session({secret: 'top-secret', saveUninitialized: false, maxAge: 30000, resave: true}));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(middlewares.checkSettingsExist);
 app.use(middlewares.setupSession);
 app.use(middlewares.authorization((res) => {res.redirect('/login')}));
-app.use(middlewares.checkSettingsExist);
 app.use(middlewares.errorHandler);
 
 app.get('/', (req, res) => {
