@@ -24,6 +24,7 @@
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "minimist": "^1.2.0",
+    "node-windows": "^0.1.14",
     "pug": "^2.0.0-rc.3",
     "rimraf": "^2.6.1"
   }
